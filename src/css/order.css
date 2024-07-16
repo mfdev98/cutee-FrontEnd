@@ -298,6 +298,7 @@
 }
 
 .order-page .order-main-content .total-price-box .pay-button {
+    margin-left: -30px;
     background: #56b74d;
     color: #f8f8ff;
     border-radius: 10px;
@@ -306,6 +307,7 @@
 }
 
 .order-page .order-main-content .total-price-box .verify-button {
+    margin-left: -15px;
     background: #0288d1;
     color: #f8f8ff;
     border-radius: 10px;

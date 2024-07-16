@@ -50,6 +50,7 @@ export default function ProcessOrders() {
                            {moment().format("YY-MM-DD HH:mm")}
                         </p>
                         <Button
+                           size="small"
                            variant="contained"
                            className={"verify-button"}
                         >
