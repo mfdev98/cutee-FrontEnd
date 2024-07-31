@@ -5,9 +5,10 @@ import React, { useEffect, useState } from "react";
 
 export default function HomeNavbar() {
   const authMember = null;
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number>(0);    
   const [value, setValue] = useState<boolean>(true);
 
+  
   useEffect(() => {
     console.log("componentDidMount"); // DATA FETCH
     setCount(count + 1);
@@ -17,9 +18,10 @@ export default function HomeNavbar() {
     };
   }, [value]);
 
+
   //** HANDLERS **/
 
-  const buttonHandler = () => {
+  const buttonHandler = () => {            
     setValue(!value);
   };
 
@@ -95,8 +97,8 @@ export default function HomeNavbar() {
                 <Button
                   variant={"contained"}
                   className={"signup-button"}
-                  // onClick={() => setCount(count + 1)}
-                  onClick={buttonHandler}
+                  // onClick={() => setCount(count + 1)}      
+                  onClick={buttonHandler}                  
                 >
                   SIGN UP
                 </Button>

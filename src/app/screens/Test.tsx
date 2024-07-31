@@ -19,7 +19,7 @@ class Test extends Component {
     });
   };
 
-  componentDidMount() {
+  componentDidMount() {         // birinchi componentimiz mount bo'lganda ishga tushadi
     console.log("componentDidMount");
     // runs after first render => RETRIEVE DATA FROM BACKEND SERVER
   }
