@@ -14,7 +14,7 @@ import { setPopularDishes } from "./slice";
 import { retrievePopularDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 
-/** Redux slice & Selector */
+/** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
   setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)),
 });
@@ -31,7 +31,7 @@ export default function HomePage() {
 
   useEffect(() => {
     // Backend server data request => Data
-    // Slice: Data => Store(redux store)
+    // Slice: Data => Store
   }, []);
 
   return (
