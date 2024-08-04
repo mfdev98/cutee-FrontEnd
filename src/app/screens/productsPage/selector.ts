@@ -5,15 +5,15 @@ const selectProductsPage = (state: AppRootState) => state.productsPage;
 
 export const retrieveRestaurant = createSelector(
   selectProductsPage,
-  (productsPage: ProductsPageState) => productsPage.restaurant
+  (ProductsPage: ProductsPageState) => ProductsPage.restaurant
 );
 
 export const retrieveChosenProduct = createSelector(
   selectProductsPage,
-  (productsPage: ProductsPageState) => productsPage.chosenProduct
+  (ProductsPage: ProductsPageState) => ProductsPage.chosenProduct
 );
 
 export const retrieveProducts = createSelector(
   selectProductsPage,
-  (productsPage: ProductsPageState) => productsPage.products
+  (ProductsPage: ProductsPageState) => ProductsPage.products
 );
