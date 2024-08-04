@@ -8,23 +8,23 @@ const initialState: ProductsPageState = {
 };
 
 const productPageSlice = createSlice({
-    name: "productsPage",
-    initialState,
-    reducers: {
-      setRestaurant: (state, action) => {
-        state.restaurant = action.payload;
-      },
-      setChosenProduct: (state, action) => {
-        state.chosenProduct = action.payload;
-      },
-      setProducts: (state, action) => {
-        state.products = action.payload;
-      },
+  name: "productsPage",
+  initialState,
+  reducers: {
+    setRestaurant: (state, action) => {
+      state.restaurant = action.payload;
     },
+    setChosenProduct: (state, action) => {
+      state.chosenProduct = action.payload;
+    },
+    setProducts: (state, action) => {
+      state.products = action.payload;
+    },
+  },
 });
 
 export const { setRestaurant, setChosenProduct, setProducts } =
-productPageSlice.actions;
+  productPageSlice.actions;
 
 const ProductsPageReducer = productPageSlice.reducer;
 export default ProductsPageReducer;
