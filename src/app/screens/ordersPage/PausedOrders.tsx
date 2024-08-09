@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 import { Messages, serverApi } from "../../../lib/config";
 import { Product } from "../../../lib/types/product";
 import { Order, OrderItem, OrderUpdateInput } from "../../../lib/types/order";
-import { T } from "../../../lib/types/common";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import { useGlobals } from "../../hooks/useGlobals";
 import OrderService from "../../services/OrderService";
@@ -27,9 +26,55 @@ interface PausedOrdersProps {
 
 export default function PausedOrders(props: PausedOrdersProps) {
   const { setValue } = props;
+  const { authMember, setOrderBuilder } = useGlobals();
   const { pausedOrders } = useSelector(pausedOrdersRetriever);
 
- 
+  /** HANDLERS */
+  const deleteOrderHandler = async (e: T) => {
+    try {
+      if (!authMember) throw new Error(Messages.error2);
+      const orderId = e.target.value;
+      const input: OrderUpdateInput = {
+        orderId: orderId,
+        orderStatus: OrderStatus.DELETE,
+      };
+
+      const confirmation = window.confirm("Do you want to delete the orders?");
+      if (confirmation) {
+        const order = new OrderService();
+        await order.updateOrders(input);
+        //Order ReBuild
+        setOrderBuilder(new Date());
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const processOrderHandler = async (e: T) => {
+    try {
+      if (!authMember) throw new Error(Messages.error2);
+      //Payment Process
+      const orderId = e.target.value;
+      const input: OrderUpdateInput = {
+        orderId: orderId,
+        orderStatus: OrderStatus.PROCESS,
+      };
+
+      const confirmation = window.confirm(
+        "Do you want to proceed the payment?"
+      );
+      if (confirmation) {
+        const order = new OrderService();
+        await order.updateOrders(input);
+        setValue("2");
+        setOrderBuilder(new Date());
+      }
+    } catch (err) {
+      console.log(err);
+      sweetErrorHandling(err).then();
+    }
+  };
 
   return (
     <TabPanel value={"1"}>
@@ -80,6 +125,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
                   variant="contained"
                   color="secondary"
                   className={"cancel-button"}
+                  onClick={deleteOrderHandler}
                 >
                   Cancel
                 </Button>
@@ -87,6 +133,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
                   value={order._id}
                   variant="contained"
                   className={"pay-button"}
+                  onClick={processOrderHandler}
                 >
                   Payment
                 </Button>

@@ -13,7 +13,6 @@ import { setPausedOrders, setProcessOrders, setFinishedOrders } from "./slice";
 import { Order, OrderInquiry } from "../../../lib/types/order";
 import "../../../css/order.css";
 import OrderService from "../../services/OrderService";
-import { OrderStatus } from "../../../lib/enums/order.enum";
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -49,7 +48,7 @@ export default function OrdersPage() {
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
       .then((data) => setFinishedOrders(data))
       .catch((err) => console.log(err));
-  }, [orderInquiry]);
+  }, [orderInquiry, orderBuilder]);
 
   /** HANDLERS  */
   const handleChange = (e: SyntheticEvent, newValue: string) => {
@@ -76,6 +75,7 @@ export default function OrdersPage() {
               </Box>
             </Box>
             <Stack className={"order-main-content"}>
+              <PausedOrders />
               <ProcessOrders />
               <FinishedOrders />
             </Stack>
