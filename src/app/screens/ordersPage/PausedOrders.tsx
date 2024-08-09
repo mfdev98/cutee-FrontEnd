@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import TabPanel from "@mui/lab/TabPanel";
-
 import { createSelector } from "reselect";
 import { retrievePausedOrders } from "./selector";
 import { useSelector } from "react-redux";
@@ -13,6 +12,7 @@ import { OrderStatus } from "../../../lib/enums/order.enum";
 import { useGlobals } from "../../hooks/useGlobals";
 import OrderService from "../../services/OrderService";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import { T } from "../../../lib/types/common";
 
 /** REDUX SLICE & SELECTOR */
 const pausedOrdersRetriever = createSelector(
@@ -43,7 +43,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
       if (confirmation) {
         const order = new OrderService();
         await order.updateOrders(input);
-        //Order ReBuild
+        //ORDER REBUILD
         setOrderBuilder(new Date());
       }
     } catch (err) {
@@ -54,7 +54,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
   const processOrderHandler = async (e: T) => {
     try {
       if (!authMember) throw new Error(Messages.error2);
-      //Payment Process
+      //PAYMENT PROCESS
       const orderId = e.target.value;
       const input: OrderUpdateInput = {
         orderId: orderId,

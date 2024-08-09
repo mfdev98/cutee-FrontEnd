@@ -3,7 +3,6 @@ import { Box, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import TabPanel from "@mui/lab/TabPanel";
 import moment from "moment";
-
 import { createSelector } from "reselect";
 import { retrieveProcessOrders } from "./selector";
 import { useSelector } from "react-redux";
@@ -14,6 +13,7 @@ import { useGlobals } from "../../hooks/useGlobals";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import { T } from "../../../lib/types/common";
 
 /** REDUX SLICE & SELECTOR */
 const processOrdersRetriever = createSelector(
@@ -29,7 +29,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
   const { authMember, setOrderBuilder } = useGlobals();
   const { processOrders } = useSelector(processOrdersRetriever);
 
-  /**Handlers  */
+  /**HANDLERS  */
   const finishOrderHandler = async (e: T) => {
     try {
       if (!authMember) throw new Error(Messages.error2);
@@ -40,7 +40,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
         orderStatus: OrderStatus.FINISH,
       };
 
-      const confirmation = window.confirm("Have ypu receivved?");
+      const confirmation = window.confirm("Have you received your order?");
       if (confirmation) {
         const order = new OrderService();
         await order.updateOrders(input);
