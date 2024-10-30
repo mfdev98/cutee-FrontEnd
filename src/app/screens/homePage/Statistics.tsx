@@ -3,9 +3,11 @@ import { Box, Container, Stack } from "@mui/material";
 import Divider from "../../components/divider";
 
 export default function Statistics() {
-   return (
-      <div className={"static-frame"}>
-         <Container>
+  return (
+    <div className={"static-frame"}>
+      <div className={"static-frame1"}>
+
+        {/* 
             <Stack className={"info"}>
                <Stack className={"static-box"}>
                   <Box className={"static-num"}>12</Box>
@@ -40,7 +42,8 @@ export default function Statistics() {
                   <Box className={"static-text"}>Clients</Box>
                </Stack>
 
-            </Stack>
-         </Container>
-      </div>);
+            </Stack>*/}
+      </div>
+    </div>
+  );
 }

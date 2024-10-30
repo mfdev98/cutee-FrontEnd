@@ -121,7 +121,7 @@ export default function Basket(props: BasketProps) {
                 <div>Cart Products:</div>
                 <DeleteForeverIcon
                   sx={{ ml: "5px", cursor: "pointer" }}
-                  color={"primary"}
+                  color={"action"}
                   onClick={() => onDeleteAll()}
                 />
               </Stack>
@@ -137,7 +137,7 @@ export default function Basket(props: BasketProps) {
                   <Box className={"basket-info-box"} key={item._id}>
                     <div className={"cancel-btn"}>
                       <CancelIcon
-                        color={"primary"}
+                        color={"action"}
                         onClick={() => onDelete(item)}
                       />
                     </div>
@@ -167,12 +167,19 @@ export default function Basket(props: BasketProps) {
           {cartItems.length !== 0 ? (
             <Box className={"basket-order"}>
               <span className={"price"}>
-                Total: ${totalPrice}({itemsPrice} + {shippingCost}){" "}
+                Total: ${totalPrice} ({itemsPrice} + {shippingCost}){" "}
               </span>
               <Button
                 onClick={proceedOrderHandler}
                 startIcon={<ShoppingCartIcon />}
                 variant={"contained"}
+                sx={{
+                  backgroundColor: "#FBF4EB",
+                  color: "#333", 
+                  "&:hover": {
+                    backgroundColor: "#E0DAD4", 
+                  },
+                }}
               >
                 Order
               </Button>
