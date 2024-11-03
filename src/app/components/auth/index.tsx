@@ -141,41 +141,94 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
         <Fade in={signupOpen}>
           <Stack
             className={classes.paper}
-            direction={"row"}
-            sx={{ width: "800px" }}
+            direction={"column"}
+            sx={{ width: "500px", height: "680px", borderRadius: "30px" }}
           >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
-            <Stack sx={{ marginLeft: "69px", alignItems: "center" }}>
-              <h2>Signup Form</h2>
-              <TextField
-                sx={{ marginTop: "7px" }}
-                id="outlined-basic"
-                label="username"
-                variant="outlined"
-                onChange={handleUserName}
-              />
-              <TextField
-                sx={{ my: "17px" }}
-                id="outlined-basic"
-                label="phone number"
-                variant="outlined"
-                onChange={handlePhone}
-                onKeyDown={handlePasswordKeyDown}
-              />
-              <TextField
-                id="outlined-basic"
-                label="password"
-                variant="outlined"
-                onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
-              />
+            {/* <ModalImg src={"/img/auth.webp"} alt="camera" /> */}
+            <Stack
+              sx={{
+                marginTop: "25px",
+                alignItems: "center",
+              }}
+            >
+              <h2>Signup</h2>
+              <Stack
+                direction={"column"}
+                sx={{
+                  marginTop: "35px",
+                }}
+              >
+                <label>User *</label>
+                <TextField
+                  sx={{
+                    width: "400px",
+                    my: "10px",
+                    marginBottom: "35px",
+                    background: "#d5ebfa",
+                    borderRadius: "30px",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "30px",
+                    },
+                  }}
+                  id="outlined-basic"
+                  label="username"
+                  variant="outlined"
+                  onChange={handleUserName}
+                />
+                <label>Phone *</label>
+                <TextField
+                  sx={{
+                    width: "400px",
+                    my: "10px",
+                    marginBottom: "35px",
+                    background: "#d5ebfa",
+                    borderRadius: "30px",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "30px",
+                    },
+                  }}
+                  id="outlined-basic"
+                  label="phone number"
+                  variant="outlined"
+                  onChange={handlePhone}
+                  onKeyDown={handlePasswordKeyDown}
+                />
+                <label>Password *</label>
+                <TextField
+                  sx={{
+                    width: "400px",
+                    my: "10px",
+                    marginBottom: "35px",
+                    background: "#d5ebfa",
+                    borderRadius: "30px",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "30px",
+                    },
+                  }}
+                  id="outlined-basic"
+                  label="password"
+                  variant="outlined"
+                  type={"password"}
+                  onChange={handlePassword}
+                  onKeyDown={handlePasswordKeyDown}
+                />
+              </Stack>
               <Fab
-                sx={{ marginTop: "30px", width: "120px" }}
+                sx={{
+                  marginTop: "30px",
+                  width: "250px",
+                  height: "60px",
+                  color: "white",
+                  backgroundColor: "#ff9689", // 배경색을 빨간색으로 설정
+                  "&:hover": {
+                    backgroundColor: "red", // 호버 시 어두운 빨간색으로 설정
+                  },
+                }}
                 variant="extended"
                 color="primary"
                 onClick={handleSignupRequest}
               >
-                <LoginIcon sx={{ mr: 1 }} />
+                <LoginIcon sx={{ mr: 1, color: "white" }} />
                 Signup
               </Fab>
             </Stack>
@@ -198,40 +251,76 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
         <Fade in={loginOpen}>
           <Stack
             className={classes.paper}
-            direction={"row"}
-            sx={{ width: "700px" }}
+            direction={"column"}
+            alignItems={"center"}
+            sx={{ width: "500px", height: "600px", borderRadius: "30px" }}
           >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
+            {/* <ModalImg src={"/img/auth.webp"} alt="camera" /> */}
             <Stack
               sx={{
-                marginLeft: "65px",
                 marginTop: "25px",
                 alignItems: "center",
               }}
             >
-              <h2>Login Form</h2>
-              <TextField
-                id="outlined-basic"
-                label="username"
-                variant="outlined"
-                sx={{ my: "10px" }}
-                onChange={handleUserName}
-              />
-              <TextField
-                id={"outlined-basic"}
-                label={"password"}
-                variant={"outlined"}
-                type={"password"}
-                onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
-              />
+              <h2>Login</h2>
+              <Stack
+                direction={"column"}
+                sx={{
+                  marginTop: "35px",
+                }}
+              >
+                <label>User *</label>
+                <TextField
+                  id="outlined-basic"
+                  label="username"
+                  variant="outlined"
+                  sx={{
+                    width: "400px",
+                    my: "10px",
+                    marginBottom: "35px",
+                    background: "#d5ebfa",
+                    borderRadius: "30px",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "30px",
+                    },
+                  }}
+                  onChange={handleUserName}
+                />
+                <label>Password *</label>
+                <TextField
+                  id={"outlined-basic"}
+                  label={"password"}
+                  variant={"outlined"}
+                  type={"password"}
+                  sx={{
+                    my: "10px",
+                    marginBottom: "35px",
+                    background: "#d5ebfa",
+                    borderRadius: "30px",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "30px",
+                    },
+                  }}
+                  onChange={handlePassword}
+                  onKeyDown={handlePasswordKeyDown}
+                />
+              </Stack>
               <Fab
-                sx={{ marginTop: "27px", width: "120px" }}
+                sx={{
+                  marginTop: "57px",
+                  width: "250px",
+                  height: "60px",
+                  color: "white",
+                  backgroundColor: "#ff9689", // 배경색을 빨간색으로 설정
+                  "&:hover": {
+                    backgroundColor: "red", // 호버 시 어두운 빨간색으로 설정
+                  },
+                }}
                 variant={"extended"}
-                color={"primary"}
+                color={"secondary"}
                 onClick={handleLoginRequest}
               >
-                <LoginIcon sx={{ mr: 1 }} />
+                <LoginIcon sx={{ mr: 1, color: "white" }} />
                 Login
               </Fab>
             </Stack>

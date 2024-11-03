@@ -157,7 +157,17 @@ export function Settings() {
         </div>
       </Box>
       <Box className={"save-box"}>
-        <Button variant={"contained"} onClick={handSubmitHandler}>
+        <Button
+          variant={"contained"}
+          onClick={handSubmitHandler}
+          sx={{
+            backgroundColor: "#FBF4EB",
+            color: "#333",
+            "&:hover": {
+              backgroundColor: "#E0DAD4",
+            },
+          }}
+        >
           Save
         </Button>
       </Box>

@@ -71,7 +71,6 @@ export default function ChosenProduct(props: ChosenProductProps) {
 
   return (
     <div className={"chosen-product"}>
-      <Box className={"title"}>Product Detail</Box>
       <Container className={"product-container"}>
         <Stack className={"chosen-product-slider"}>
           <Swiper
@@ -118,18 +117,27 @@ export default function ChosenProduct(props: ChosenProductProps) {
               <span>${chosenProduct?.productPrice}</span>
             </div>
             <div className={"button-box"}>
-              <Button variant="contained"
-              onClick={(e) => {
-                onAdd({
-                  _id: chosenProduct._id,
-                  quantity: 1,
-                  name: chosenProduct.productName,
-                  price: chosenProduct.productPrice,
-                  image: chosenProduct.productImages[0],
-                });
-                e.stopPropagation();
-              }}
-              >Add To Basket</Button>
+              <Button
+                variant="contained"
+                sx={{
+                  background: "#ff9689",
+                  "&:hover": {
+                    backgroundColor: "#acdee7", // 호버 시 빨간색으로 변경
+                  },
+                }}
+                onClick={(e) => {
+                  onAdd({
+                    _id: chosenProduct._id,
+                    quantity: 1,
+                    name: chosenProduct.productName,
+                    price: chosenProduct.productPrice,
+                    image: chosenProduct.productImages[0],
+                  });
+                  e.stopPropagation();
+                }}
+              >
+                Add To Basket
+              </Button>
             </div>
           </Box>
         </Stack>

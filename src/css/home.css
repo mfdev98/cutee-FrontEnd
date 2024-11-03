@@ -250,8 +250,9 @@
 
 .homepage .active-users-frame {
   width: 100%;
-  height: 550px;
-  background: #f8f8ff;
+  height: 650px;
+  background: rgb(251, 244, 235);
+
   display: flex;
 }
 
@@ -263,6 +264,8 @@
 }
 
 .homepage .active-users-frame .category-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-family: "Dancing Script";
   font-style: normal;
   font-weight: 700;
@@ -272,7 +275,7 @@
 
 .homepage .cards-frame {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
   flex-direction: row;
 }
 
@@ -308,7 +311,7 @@
 .homepage .events-frame {
   width: 100%;
   height: 745px;
-  background: #f8f8ff;
+  background: rgb(251, 244, 235);
   display: flex;
 }
 
@@ -482,11 +485,12 @@
   height: 8px;
   text-align: center;
   opacity: 1;
-  background: #f8f8ff;
+  background: white;
   border-radius: 50%;
 }
 
 .homepage .events-frame .swiper-pagination-bullet-active {
-  background: #343434;
+   background: #ff9689;
+
   border-radius: 50%;
 }

@@ -23,7 +23,7 @@
 
 .home-navbar {
   width: 100%;
-  height: 1300px;
+  height: 1200px;
   margin-top: 30px;
   display: flex;
   background: url("/public/img/banner.webp");
@@ -33,9 +33,9 @@
 .home-navbar .orderNow {
   width: 250px;
   height: 90px;
-  margin-top: 640px;
-  margin-left: 60px;
-  border-radius: 40px;
+  margin-top: 500px;
+  margin-left: 50px;
+  border-radius: 30px;
 }
 
 .home-navbar .navbar-container {
@@ -113,7 +113,7 @@
 
 .head-other {
   width: 100%;
-  height: 400px;
+  height: 250px;
   background: rgb(251, 244, 235);
   background-size: cover;
 }

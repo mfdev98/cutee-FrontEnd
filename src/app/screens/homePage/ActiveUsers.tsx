@@ -21,7 +21,9 @@ export default function ActiveUsers() {
     <div className={"active-users-frame"}>
       <Container>
         <Stack className={"main"}>
-          <Box className={"category-title"}>Active Users</Box>
+          <Box className={"category-title"}>
+            <img src="img/Frame 210.png" alt="" />
+          </Box>
           <Stack className={"cards-frame"}>
             <CssVarsProvider>
               {topUsers.length !== 0 ? (
